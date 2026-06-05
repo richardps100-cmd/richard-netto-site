@@ -32,8 +32,8 @@ body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;fo
 /* NAV */
 nav{position:fixed;top:2px;left:0;right:0;z-index:1000;padding:0 5%;transition:all 0.3s}
 nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);text-decoration:none}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--gold);text-decoration:none;white-space:nowrap}
 .nav-logo span{color:var(--text)}
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
@@ -61,7 +61,7 @@ nav.scrolled{background:rgba(10,10,10,0.95);backdrop-filter:blur(20px);border-bo
 .btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
 .btn-secondary{border:1px solid var(--border-strong);color:var(--text);padding:16px 36px;font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all 0.25s}
 .btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:80px;border-top:1px solid var(--border);padding-top:48px;opacity:0}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:80px;border-top:1px solid var(--border);padding-top:48px;opacity:0;width:100%}
 .hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);color:var(--gold);letter-spacing:1px;line-height:1}
 .hero-stat-label{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-top:6px}
 .hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.5}
@@ -214,28 +214,92 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:48px 5
 .reveal-delay-3{transition-delay:0.3s}
 .reveal-delay-4{transition-delay:0.4s}
 
-/* MOBILE */
+/* TABLET */
 @media(max-width:900px){
-.numbers-grid{grid-template-columns:1fr 1fr}
-.number-item:nth-child(2){border-right:none}
-.cases-header{grid-template-columns:1fr}gap:32px}
-.cases-grid{grid-template-columns:1fr}
-.case-card.featured{grid-column:auto;grid-template-columns:1fr}
-.metodo-inner,.quem-inner,.sobre-inner,.cta-inner{grid-template-columns:1fr;gap:48px}
-.footer-top{grid-template-columns:1fr 1fr}
-.pilares-grid{grid-template-columns:1fr}
-.sobre-creds{grid-template-columns:1fr 1fr}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .number-item:nth-child(2){border-right:none}
+  .cases-header{grid-template-columns:1fr;gap:24px}
+  .cases-grid{grid-template-columns:1fr}
+  .case-card.featured{grid-column:auto;grid-template-columns:1fr;gap:24px}
+  .metodo-inner,.quem-inner,.sobre-inner,.cta-inner{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .pilares-grid{grid-template-columns:1fr 1fr}
+  .sobre-creds{grid-template-columns:1fr 1fr 1fr}
 }
+
+/* MOBILE */
 @media(max-width:640px){
-.nav-links,.nav-cta{display:none}
-.hamburger{display:flex}
-.numbers-grid{grid-template-columns:1fr 1fr}
-.number-item{padding:32px 20px}
-.hero-stats{grid-template-columns:1fr}
-.cases-grid{grid-template-columns:1fr}
-.footer-top{grid-template-columns:1fr}
-section{padding:72px 5%}
-.servicos-grid{grid-template-columns:1fr 1fr}
+  /* NAV */
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-logo{font-size:18px;letter-spacing:1px;white-space:nowrap}
+  .nav-inner{height:56px}
+
+  /* SECTIONS */
+  section{padding:56px 4%}
+
+  /* HERO */
+  #hero{padding:0 4%;min-height:100svh}
+  .hero-inner{padding-top:70px}
+  .hero-badge{margin-bottom:20px;padding:5px 12px}
+  .hero-badge span{font-size:10px;letter-spacing:1px}
+  .hero-title{font-size:clamp(48px,13vw,72px);margin-bottom:20px}
+  .hero-sub{font-size:15px;margin-bottom:32px}
+  .hero-btns{flex-direction:column;gap:12px}
+  .hero-btns a{width:100%;text-align:center;padding:15px 24px;font-size:12px}
+  .hero-stats{grid-template-columns:1fr;gap:0;margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
+  .hero-stats > div{padding:16px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .hero-stats > div:last-child{border-bottom:none}
+  .hero-stat-num{font-size:36px}
+  .hero-stat-label{font-size:11px;text-align:right;max-width:180px}
+
+  /* NUMBERS */
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .number-item{padding:28px 16px;border-right:1px solid var(--border)}
+  .number-item:nth-child(2){border-right:none}
+  .number-item:nth-child(3){border-bottom:none}
+  .number-item:nth-child(4){border-right:none;border-bottom:none}
+  .number-value{font-size:clamp(36px,9vw,52px)}
+  .number-label{font-size:11px}
+
+  /* CASES */
+  .cases-header{grid-template-columns:1fr;gap:16px;margin-bottom:32px}
+  .cases-grid{grid-template-columns:1fr;gap:2px}
+  .case-card{padding:28px 20px}
+  .case-card.featured{grid-column:auto;grid-template-columns:1fr;gap:24px;padding:28px 20px}
+  .case-metrics{grid-template-columns:1fr 1fr;gap:16px}
+  .case-metric-val{font-size:28px}
+
+  /* METODO */
+  .metodo-inner{grid-template-columns:1fr;gap:32px}
+  .pilares-grid{grid-template-columns:1fr 1fr;gap:2px}
+  .pilar{padding:16px}
+
+  /* SERVICOS */
+  .servicos-grid{grid-template-columns:1fr 1fr;gap:2px}
+  .servico-item{padding:20px 16px}
+
+  /* QUEM */
+  .quem-inner{grid-template-columns:1fr;gap:32px}
+  .quem-highlight{padding:24px 20px}
+
+  /* SOBRE */
+  .sobre-inner{grid-template-columns:1fr;gap:32px}
+  .sobre-photo{aspect-ratio:4/3;max-height:320px}
+  .sobre-creds{grid-template-columns:1fr 1fr 1fr}
+  .sobre-cred{padding:14px 8px}
+  .sobre-cred-val{font-size:20px}
+
+  /* CTA / FORM */
+  .cta-inner{grid-template-columns:1fr;gap:32px}
+  .form-wrapper{padding:24px 20px}
+
+  /* FOOTER */
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+
+  /* SECTION TITLES */
+  .section-title{font-size:clamp(28px,7vw,40px)}
 }
 </style>
 </head>
